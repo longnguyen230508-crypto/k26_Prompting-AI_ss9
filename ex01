@@ -1,0 +1,14 @@
+Bước 1: Phân tích lỗi:
+Việc trộn lẫn nhiều cú pháp biến số như [language] (ngoặc vuông, chữ thường, tiếng Anh) và {audience} (ngoặc nhọn, chữ thường, tiếng Anh)
+gây ra nhiều trở ngại khi đưa vào quy trình tự động hóa hoặc tái sử dụng prompt:
+- Khó khăn cho parser và regex/template engine: Các hệ thống tự động hóa (như script, workflow, hoặc công cụ nối chuỗi prompt) thường kỳ 
+vọng một định dạng dấu phân cách cố định (ví dụ chỉ nhận {{...}}, {...}, hoặc [...]). Khi cú pháp không đồng nhất, bước tìm kiếm và thay 
+thế chuỗi (find-and-replace / variable binding) dễ bỏ sót hoặc parse sai biến.
+- Dễ nhầm lẫn giữa biến và nội dung văn bản bình thường: Ngoặc vuông [...] hoặc ngoặc nhọn {...} đôi khi xuất hiện tự nhiên trong văn bản, 
+ví dụ hoặc định dạng output. Nếu không có quy ước rõ ràng và nhất quán, cả con người lẫn công cụ xử lý đều dễ nhầm đâu là placeholder cần điền giá trị, đâu là ký tự cố định.
+- Thiếu chuẩn hóa ngôn ngữ và chữ hoa: Dùng lẫn lộn tên biến tiếng Anh (language, audience) với prompt tiếng Việt và viết thường dễ khiến
+người dùng nhập sai khi điền tham số thủ công, hoặc ánh xạ nhầm trường dữ liệu trong bảng cấu hình/workflow.
+- Giảm tính bảo trì khi mở rộng: Khi prompt có thêm nhiều biến hơn (như độ dài, văn phong, định dạng đầu ra), việc không có quy tắc đặt tênthống nhất khiến prompt nhanh chóng rối, khó kiểm soát lỗi và khó bàn giao cho người khác sử dụng.
+
+Bước 2: Đồng bộ biến số:
+Hãy viết một bài chia sẻ về Quản trị Prompt & System Instructions bằng ngôn ngữ [NGÔN_NGỮ]. Dành cho đối tượng [ĐỐI_TƯỢNG].
